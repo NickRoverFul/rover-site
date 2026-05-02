@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rover Fulfillment — 3PL & Prep Center, Chantilly VA</title>
+  <meta name="description" content="Dedicated FBA, WFS, D2C prep center in Chantilly, Virginia. Built by Amazon sellers with $11M in annual revenue and 20+ years of experience. 60 days free storage, no minimums." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0A0A0A;
+      --surface: #111111;
+      --surface-2: #181818;
+      --border: #1E1E1E;
+      --border-2: #2A2A2A;
+      --text: #F0F0F0;
+      --text-sub: #A0A0A0;
+      --text-muted: #606060;
+      --accent: #FF6200;
+      --accent-hi: #FF7A20;
+      --accent-lo: rgba(255,98,0,0.08);
+      --accent-ring: rgba(255,98,0,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .nav-logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 4px;
+      transition: background 0.15s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent-hi) !important; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,98,0,0.06) 0%, transparent 70%),
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: auto, 64px 64px, 64px 64px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      line-height: 0.95;
+      color: var(--text);
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 400;
+      color: var(--text-sub);
+      max-width: 680px;
+      margin: 24px auto 0;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .hero-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border-2);
+      border-radius: 4px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 48px;
+      position: relative;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--accent-hi); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-sub);
+      padding: 14px 32px;
+      border-radius: 4px;
+      border: 1px solid var(--border-2);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .stat-item {
+      flex: 1;
+      max-width: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 0 32px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── Section base ── */
+    section {
+      padding: 96px 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .section-body {
+      font-size: 17px;
+      color: var(--text-sub);
+      max-width: 620px;
+      line-height: 1.65;
+    }
+
+    /* ── What we do ── */
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .what-left { }
+
+    .what-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .what-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color 0.15s;
+    }
+
+    .what-card:hover { border-color: var(--accent-ring); }
+
+    .what-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent-lo);
+      border: 1px solid var(--accent-ring);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .what-card-text h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .what-card-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Services ── */
+    .services-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 96px 48px;
+    }
+
+    .services-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 48px;
+    }
+
+    .service-item {
+      background: var(--surface);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: background 0.15s;
+    }
+
+    .service-item:hover { background: var(--surface-2); }
+
+    .service-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .service-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    /* ── Pricing ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 28px 32px;
+      transition: border-color 0.15s;
+    }
+
+    .pricing-card:hover { border-color: var(--border-2); }
+
+    .pricing-card--featured {
+      border-color: var(--accent-ring);
+      background: var(--accent-lo);
+    }
+
+    .pricing-service {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .pricing-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .pricing-card--featured .pricing-price { color: var(--accent); }
+
+    .pricing-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .pricing-note {
+      margin-top: 24px;
+      padding: 14px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text-sub);
+      text-align: center;
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .about-stat {
+      background: var(--surface);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .about-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .about-stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── Contact ── */
+    .contact-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 96px 48px;
+    }
+
+    .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 40px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .form-input,
+    .form-textarea {
+      background: var(--bg);
+      border: 1px solid var(--border-2);
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      outline: none;
+      width: 100%;
+      transition: border-color 0.15s;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--text-muted); }
+
+    .form-input:focus,
+    .form-textarea:focus { border-color: var(--accent-ring); }
+
+    .form-textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: var(--accent-hi); }
+
+    .form-success {
+      display: none;
+      padding: 14px 20px;
+      background: rgba(56,201,106,0.09);
+      border: 1px solid rgba(56,201,106,0.2);
+      border-radius: 4px;
+      color: #38C96A;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: center;
+    }
+
+    .footer-addr {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-addr a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Divider line ── */
+    .full-divider {
+      height: 1px;
+      background: var(--border);
+      width: 100%;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow  { animation: fadeUp 0.6s ease both; }
+    .hero-title    { animation: fadeUp 0.6s ease 0.1s both; }
+    .hero-subtitle { animation: fadeUp 0.6s ease 0.2s both; }
+    .hero-badges   { animation: fadeUp 0.6s ease 0.3s both; }
+    .hero-cta-row  { animation: fadeUp 0.6s ease 0.4s both; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      nav .nav-links { display: none; }
+      section { padding: 64px 24px; }
+      .hero { padding: 100px 24px 64px; }
+      .stats-bar { padding: 24px; flex-wrap: wrap; gap: 24px; }
+      .stat-item { border-right: none; max-width: none; }
+      .what-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+      .footer-info { text-align: center; }
+      .services-section { padding: 64px 24px; }
+      .contact-section { padding: 64px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">R</div>
+      <span class="nav-logo-text">Rover Fulfillment</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-eyebrow">Chantilly, Virginia</div>
+    <h1 class="hero-title">Fulfilled<br>by <span>Rover</span></h1>
+    <p class="hero-subtitle">
+      Dedicated FBA, WFS & D2C prep center built by Amazon sellers who have done over $11 million in a single year with over 20 years of experience.
+    </p>
+    <div class="hero-badges">
+      <div class="hero-badge"><span class="hero-badge-dot"></span>60 Days Free Storage</div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>No Minimums</div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Quality Guaranteed</div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>24hr Response</div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="#contact" class="btn-primary">Start Fulfilling Today</a>
+      <a href="#services" class="btn-ghost">See Services</a>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">$11M+</span>
+      <span class="stat-label">Peak Annual Revenue</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">20+</span>
+      <span class="stat-label">Years of Experience</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">60</span>
+      <span class="stat-label">Days Free Storage</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">$0</span>
+      <span class="stat-label">Minimum Requirements</span>
+    </div>
+  </div>
+
+  <!-- What We Do -->
+  <section id="services">
+    <div class="what-grid">
+      <div class="what-left">
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-title">Your inventory.<br>Our expertise.</h2>
+        <p class="section-body">
+          We inspect, prep, label, and pack your product to platform requirements. Every package leaves our facility as if it were our own inventory — handled with care, packed to protect, and prepared to impress.
+          <br><br>
+          All that's required from you is to send your inventory to our warehouse located in Chantilly, Virginia.
+        </p>
+      </div>
+      <div class="what-right">
+        <div class="what-card">
+          <div class="what-icon">📦</div>
+          <div class="what-card-text">
+            <h3>FBA & Walmart WFS Prep</h3>
+            <p>Full Amazon and Walmart marketplace prep to platform spec. FNSKU labeling, poly bagging, bubble wrap, and more.</p>
+          </div>
+        </div>
+        <div class="what-card">
+          <div class="what-icon">🚚</div>
+          <div class="what-card-text">
+            <h3>D2C Order Fulfillment</h3>
+            <p>Shopify, Wix, and DTC order fulfillment with automated tracking and real-time client portal access.</p>
+          </div>
+        </div>
+        <div class="what-card">
+          <div class="what-icon">🏷️</div>
+          <div class="what-card-text">
+            <h3>Branded Packaging</h3>
+            <p>Custom packaging solutions that represent your brand. Inserts, custom boxes, branded tape, and more.</p>
+          </div>
+        </div>
+        <div class="what-card">
+          <div class="what-icon">🏢</div>
+          <div class="what-card-text">
+            <h3>Inventory Storage</h3>
+            <p>60 days free storage for new clients. Secure, organized, and tracked in real time through your client dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- Services list -->
+  <div class="services-section">
+    <div class="services-inner">
+      <div class="section-eyebrow">Services Include</div>
+      <h2 class="section-title">Everything your<br>product needs.</h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <span class="service-num">01</span>
+          <span class="service-name">FNSKU Labeling</span>
+        </div>
+        <div class="service-item">
+          <span class="service-num">02</span>
+          <span class="service-name">Poly Bagging & Bubble Wrapping</span>
+        </div>
+        <div class="service-item">
+          <span class="service-num">03</span>
+          <span class="service-name">Bundling & Kitting</span>
+        </div>
+        <div class="service-item">
+          <span class="service-num">04</span>
+          <span class="service-name">Returns Processing & Inspection</span>
+        </div>
+        <div class="service-item">
+          <span class="service-num">05</span>
+          <span class="service-name">Walmart WFS & FBA Prep</span>
+        </div>
+        <div class="service-item">
+          <span class="service-num">06</span>
+          <span class="service-name">Shopify Order Fulfillment</span>
+        </div>
+        <div class="service-item">
+          <span class="service-num">07</span>
+          <span class="service-name">Inventory Storage</span>
+        </div>
+        <div class="service-item">
+          <span class="service-num">08</span>
+          <span class="service-name">Branded Packaging</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="section-eyebrow">Pricing</div>
+    <h2 class="section-title">Simple, transparent<br>pricing.</h2>
+    <p class="section-body">No hidden fees. No contracts. No minimums. Pay only for what you use.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-service">FBA & Walmart WFS Prep</div>
+        <div class="pricing-price">From $0.50</div>
+        <div class="pricing-desc">Per unit. Includes inspection, labeling, and platform-compliant packaging.</div>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-service">Shopify & DTC Order Fulfillment</div>
+        <div class="pricing-price">From $3.00</div>
+        <div class="pricing-desc">Per order. Includes pick, pack, and ship. Packing materials included.</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-service">Inventory Storage</div>
+        <div class="pricing-price">Free — 60 Days</div>
+        <div class="pricing-desc">No storage fees for your first 60 days. $20/pallet/month after.</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-service">Branded Packaging</div>
+        <div class="pricing-price">Pricing Varies</div>
+        <div class="pricing-desc">Custom inserts, boxes, and branded materials. Contact us for a quote.</div>
+      </div>
+    </div>
+    <div class="pricing-note">No minimums — we work with brands at every stage of growth.</div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- About -->
+  <section id="about">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow">About Us</div>
+        <h2 class="section-title">Built by sellers,<br>for sellers.</h2>
+        <p class="section-body">
+          We're a family-run business since 2003 that specialized in retail across several marketplaces and categories, with $11 million in revenue generated in a single year at our peak.
+          <br><br>
+          We built Rover Fulfillment because we know what sellers actually need from a prep center — because we've been on your side of the business for over 20 years. We've packed and seen it all. Now we want to help new and existing brands with the knowledge and experience we've accumulated.
+        </p>
+      </div>
+      <div class="about-stat-grid">
+        <div class="about-stat">
+          <span class="about-stat-num">2003</span>
+          <span class="about-stat-label">Founded</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">$11M</span>
+          <span class="about-stat-label">Peak Revenue</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">20+</span>
+          <span class="about-stat-label">Years Experience</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">3PL</span>
+          <span class="about-stat-label">Dedicated Facility</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <div class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="section-eyebrow">Get Started</div>
+      <h2 class="section-title">Start Fulfilling Today</h2>
+      <p class="section-body">Contact us with your monthly volume and product type and we'll get back to you within 24 hours.</p>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-field">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="John Doe" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="john@yourbrand.com" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="detail">Tell us about your business</label>
+          <textarea class="form-textarea" id="detail" name="detail" placeholder="Tell us your monthly volume and what products you're selling" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit Inquiry</button>
+        <div class="form-success" id="formSuccess">
+          ✓ Message received — we'll be in touch within 24 hours.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-brand">Rover Fulfillment LLC</span>
+    <div class="footer-info">
+      <span class="footer-addr">4124 Walney Rd Suite K, Chantilly, Virginia 20151</span>
+      <span class="footer-addr">571-337-2186 · <a href="mailto:nick@rover-fulfillment.com">nick@rover-fulfillment.com</a></span>
+      <span class="footer-addr">Serving Fairfax, Loudoun, Prince William Counties, and nationwide</span>
+    </div>
+    <span class="footer-copy">© 2026 Rover Fulfillment LLC. All rights reserved.</span>
+  </footer>
+
+  <script>
+    // Simple form handler — replace action with your form endpoint or Resend API
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault()
+      const btn = this.querySelector('.form-submit')
+      const success = document.getElementById('formSuccess')
+      btn.textContent = 'Sending...'
+      btn.disabled = true
+
+      // TODO: Replace with actual form submission (Resend API or Formspree)
+      await new Promise(r => setTimeout(r, 1000))
+
+      btn.style.display = 'none'
+      success.style.display = 'block'
+    })
+  </script>
+</body>
+</html>
