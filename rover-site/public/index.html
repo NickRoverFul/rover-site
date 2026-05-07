@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-TX9RWXVZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GT-TX9RWXVZ');
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rover Fulfillment — 3PL & Prep Center, Chantilly VA</title>
   <meta name="description" content="Dedicated FBA, WFS, D2C prep center in Chantilly, Virginia. Built by Amazon sellers with $11M in annual revenue and 20+ years of experience. 60 days free storage, no minimums." />
@@ -981,7 +990,6 @@
   </footer>
 
   <script>
-    // Simple form handler — replace action with your form endpoint or Resend API
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault()
       const btn = this.querySelector('.form-submit')
@@ -989,11 +997,33 @@
       btn.textContent = 'Sending...'
       btn.disabled = true
 
-      // TODO: Replace with actual form submission (Resend API or Formspree)
-      await new Promise(r => setTimeout(r, 1000))
+      const data = {
+        name:   document.getElementById('name').value,
+        email:  document.getElementById('email').value,
+        detail: document.getElementById('detail').value,
+      }
 
-      btn.style.display = 'none'
-      success.style.display = 'block'
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        })
+        if (res.ok) {
+          btn.style.display = 'none'
+          success.style.display = 'block'
+          // Track form submission in Google Ads
+          gtag('event', 'conversion', { send_to: 'AW-18043970071' })
+        } else {
+          btn.textContent = 'Submit Inquiry'
+          btn.disabled = false
+          alert('Something went wrong. Please email nick@rover-fulfillment.com directly.')
+        }
+      } catch (err) {
+        btn.textContent = 'Submit Inquiry'
+        btn.disabled = false
+        alert('Something went wrong. Please email nick@rover-fulfillment.com directly.')
+      }
     })
   </script>
 </body>
