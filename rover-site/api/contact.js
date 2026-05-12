@@ -2,8 +2,26 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
-  const { name, email, detail } = req.body || {}
+  const { name, email, detail, recaptchaToken } = req.body || {}
   if (!name || !email || !detail) return res.status(400).json({ error: 'Missing fields' })
+
+  // Verify reCAPTCHA token
+  if (!recaptchaToken) return res.status(400).json({ error: 'Missing captcha token' })
+  try {
+    const captchaRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+    })
+    const captchaData = await captchaRes.json()
+    // v3 returns a score 0.0-1.0 — below 0.5 is likely a bot
+    if (!captchaData.success || captchaData.score < 0.5) {
+      return res.status(400).json({ error: 'Captcha verification failed' })
+    }
+  } catch (err) {
+    console.error('Captcha error:', err.message)
+    return res.status(500).json({ error: 'Captcha check failed' })
+  }
 
   try {
     const response = await fetch('https://api.resend.com/emails', {

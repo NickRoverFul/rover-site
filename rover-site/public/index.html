@@ -11,6 +11,8 @@
     gtag('config', 'GT-TX9RWXVZ');
     gtag('config', 'AW-18043970071');
   </script>
+  <!-- reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdF2-UsAAAAACh9Pfv2pEwq9YP8fWZXCiJZYNuj"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rover Fulfillment — 3PL & Prep Center, Chantilly VA</title>
@@ -1124,6 +1126,10 @@
       }
 
       try {
+        // Get reCAPTCHA v3 token
+        const recaptchaToken = await grecaptcha.execute('6LdF2-UsAAAAACh9Pfv2pEwq9YP8fWZXCiJZYNuj', { action: 'contact' })
+        data.recaptchaToken = recaptchaToken
+
         const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -1132,7 +1138,6 @@
         if (res.ok) {
           btn.style.display = 'none'
           success.style.display = 'block'
-          // Track form submission in Google Ads
           gtag('event', 'conversion', { send_to: 'AW-18043970071' })
         } else {
           btn.textContent = 'Submit Inquiry'
