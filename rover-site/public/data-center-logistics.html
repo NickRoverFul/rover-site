@@ -17,7 +17,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Center Hardware Warehousing & Local Fulfillment | Chantilly VA — Rover Fulfillment</title>
-  <meta name="description" content="Local warehousing and fulfillment for IT hardware distributors, VARs, and resellers serving Northern Virginia data centers. Climate-controlled facility in Chantilly, VA — minutes from Data Center Alley. No minimums." />
+  <meta name="description" content="Forward stocking location for IT hardware distributors, VARs, and TPM providers serving Northern Virginia data centers. Climate-controlled facility in Chantilly, VA — minutes from Data Center Alley." />
   <link rel="canonical" href="https://rover-fulfillment.com/data-center-logistics.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -54,7 +54,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="/#services">Services</a></li>
-      <li><a href="/#calculator">Get a Quote</a></li>
+      <li><a href="/#contact">Get a Quote</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/#about">About</a></li>
       <li class="nav-always"><a href="tel:5713372186" class="nav-cta" style="background: transparent !important; border: 1px solid var(--border-2); color: var(--text-sub) !important;">📞 571-337-2186</a></li>
@@ -197,7 +197,7 @@
         That proximity is the entire point. A part staged here is close enough that same-day delivery is a routing question, not a shipping-speed question. Warehouse space three states away can't offer that at any price.
       </p>
       <div class="callout">
-        <p><strong>No lease, no headcount, no minimums.</strong> You're not renting a building or hiring a warehouse team — you're paying per unit stored and per order shipped. Scale it up or down as demand moves.</p>
+        <p><strong>No lease, no headcount.</strong> You're not renting a building or hiring a warehouse team — you're paying per unit stored and per order dispatched. Terms are quoted per account based on space and activity, so it scales with what you actually use.</p>
       </div>
     </div>
   </div>
@@ -247,7 +247,7 @@
       <div class="card card--stack">
         <div class="card-text">
           <h3>Is there a minimum volume?</h3>
-          <p>No minimums. We work with small volumes, which means you can position a modest amount of stock locally to test whether the speed advantage wins you business before committing to more.</p>
+          <p>Forward stocking is quoted per account on space and dispatch activity rather than a fixed order minimum — a spares pool might sit still for weeks and then move urgently. Our 250 orders/month minimum applies to D2C e-commerce fulfillment, not to this. Tell us what you'd stage and we'll price it.</p>
         </div>
       </div>
       <div class="card card--stack">
@@ -315,6 +315,19 @@
   </footer>
 
   <script>
+    // Returns a token, or null if reCAPTCHA hasn't loaded / errored.
+    // The API flags a missing token rather than rejecting it, so a captcha
+    // problem never costs us a real inquiry.
+    async function getCaptchaToken() {
+      try {
+        if (typeof grecaptcha === 'undefined') return null
+        await new Promise(resolve => grecaptcha.ready(resolve))
+        return await grecaptcha.execute('6LdF2-UsAAAAACh9Pfv2pEwq9YP8fWZXCiJZYNuj', { action: 'contact' })
+      } catch (err) {
+        return null
+      }
+    }
+
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault()
       const btn = this.querySelector('button[type="submit"]')
@@ -329,8 +342,7 @@
       }
 
       try {
-        // Get reCAPTCHA v3 token — the API rejects submissions without one
-        data.recaptchaToken = await grecaptcha.execute('6LdF2-UsAAAAACh9Pfv2pEwq9YP8fWZXCiJZYNuj', { action: 'contact' })
+        data.recaptchaToken = await getCaptchaToken()
 
         const res = await fetch('/api/contact', {
           method: 'POST',
