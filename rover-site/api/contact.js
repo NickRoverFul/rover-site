@@ -24,8 +24,9 @@ export default async function handler(req, res) {
   // ── Spam scoring ──
   // Deliberately does NOT block on a low score. reCAPTCHA v3 routinely gives
   // low scores to VPN users, privacy browsers, and unusual-but-real traffic.
-  // A real inquiry silently dropped is worse than a flagged one in the inbox,
-  // so a suspicious submission still gets delivered — just labeled.
+  // A real inquiry silently dropped is worse than spam in the inbox, so every
+  // submission is delivered. The result is only logged (Vercel logs), never put
+  // in the email: replies quote the subject and body back to the sender.
   let spamNote = ''
   if (!recaptchaToken) {
     spamNote = 'No captcha token supplied'
@@ -58,9 +59,12 @@ export default async function handler(req, res) {
     }
   }
 
-  const subject = spamNote
-    ? `[POSSIBLE SPAM] New Inquiry from ${name}`
-    : `New Inquiry from ${name}`
+  if (spamNote) console.warn(`Possible spam from ${email}: ${spamNote}`)
+
+  // Sender's name in the display name so inquiries are easy to tell apart in the inbox.
+  const fromName = String(name).replace(/["<>\r\n]/g, '').trim().slice(0, 60) || 'Website'
+  // Worded so it still reads naturally as "Re: ..." when Nick replies.
+  const subject = `Your Rover Fulfillment inquiry — ${fromName}`
 
   try {
     const response = await fetch('https://api.resend.com/emails', {
@@ -70,24 +74,19 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Rover Fulfillment Website <nick@rover-fulfillment.com>',
+        from: `${fromName} via Rover Fulfillment <nick@rover-fulfillment.com>`,
         to: ['nick@rover-fulfillment.com'],
         reply_to: email,
         subject,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px">
-            <h2 style="color:#FF6200;margin-bottom:24px">New Website Inquiry</h2>
-            ${spamNote ? `<p style="background:#FFF4E5;border-left:3px solid #FF6200;padding:12px 16px;color:#7A4B00;font-size:13px">Flagged: ${esc(spamNote)}. Delivered anyway so a real inquiry isn't lost — check before replying.</p>` : ''}
             <p><strong>Name:</strong> ${esc(name)}</p>
             <p><strong>Email:</strong> ${esc(email)}</p>
             <p><strong>Message:</strong></p>
             <p style="background:#f5f5f5;padding:16px;border-radius:4px;white-space:pre-wrap">${esc(detail)}</p>
-            <hr style="margin:24px 0;border:none;border-top:1px solid #eee"/>
-            <p style="color:#999;font-size:12px">Sent from rover-fulfillment.com contact form</p>
           </div>
         `,
         text: [
-          spamNote ? `FLAGGED: ${spamNote} — delivered anyway, verify before replying.\n` : '',
           `Name: ${name}`,
           `Email: ${email}`,
           '',
